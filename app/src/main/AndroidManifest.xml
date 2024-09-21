@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+
+    <application
+        android:name=".ForegroundServices.RunningApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidCorePractice"
+        tools:targetApi="31">
+        <activity
+            android:name=".Uri.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Context.MainActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ContentProvider.MainActivity2" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <!--
+launchMode="singleTop" will let our app only to open an
+        one instance of our app
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat">
+            <!-- Initially when we are trying to open up our app then android
+             system sends an implicit intent with a Main action to our
+             app to launch the MainActivity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!--
+            We register our app to open up on a chooser when user
+            wants to send an image
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+
+        </activity>
+
+        <service
+            android:name=".ForegroundServices.RunningService"
+            android:foregroundServiceType="mediaPlayback" />
+    </application>
+
+    <!--
+    We want to query for other app's which can receive intents with
+    this specific .SEND action
+    -->
+    <!-- Data block specify type of data are going to be send -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SEND"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+
+</manifest>
