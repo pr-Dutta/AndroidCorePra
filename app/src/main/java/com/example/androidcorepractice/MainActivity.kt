@@ -25,7 +25,7 @@ import com.example.androidcorepractice.BroadcastsReceiver.AirPlaneModeReceiver
 
 class MainActivity : ComponentActivity() {
 
-    // - (27-08-2024)
+    // - (21-09-2024)
     // For Broadcast Receiver
     private val airPlaneModeReceiver = AirPlaneModeReceiver()
 
@@ -36,16 +36,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // - (27-08-2024)
-        // For Broadcast Receiver
+        // - (21-09-2024)
+        // We are registering Broadcast Receiver inside of our app
+        // Dynamic Broadcast receiver, because we are dynamically
+        // register and unregister the receiver according to our need
 
-        // - (28-08-2024)
-        // Dynamic Broadcast receiver
+        //Dynamic receiver will only work if the app is active (running)
         registerReceiver(
             airPlaneModeReceiver,
+            // What kind of intents our Receiver should be able to receive
             IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED)
         )
 
+        // - (21-09-2024)
+        // Static Broadcast Receiver will be triggered even if our app
+        // is not launched
+
+        // For static receiver you have to register it in the Manifest file
 
         setContent {
             AndroidCorePracticeTheme {
@@ -119,7 +126,7 @@ class MainActivity : ComponentActivity() {
         viewModel.updateUri(uri)
     }
 
-    // - (27-08-2024)
+    // - (21-09-2024)
     // Destroying the Broadcast receiver
     override fun onDestroy() {
         super.onDestroy()
