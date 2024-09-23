@@ -38,6 +38,7 @@ class MainActivity : ComponentActivity() {
 
         // - (21-09-2024)
         // We are registering Broadcast Receiver inside of our app
+
         // Dynamic Broadcast receiver, because we are dynamically
         // register and unregister the receiver according to our need
 
