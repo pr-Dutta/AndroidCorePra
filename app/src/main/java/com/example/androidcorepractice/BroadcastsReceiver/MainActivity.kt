@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
                     // - (22-09-2024)
                     // It could be a reliable way to communicate with two app
                     // But this will only work if the app is running or if
-                    // you specifically mention the particular app then also
-                    // it will work.
+                    // you specifically mention the particular app then
+                    // it will work for not running app.
                     Button(onClick = {
                         sendBroadcast(
                             // Custom action for custom example
