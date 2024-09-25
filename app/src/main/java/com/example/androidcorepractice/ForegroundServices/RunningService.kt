@@ -1,5 +1,6 @@
 package com.example.androidcorepractice.ForegroundServices
 
+import android.app.Notification
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
@@ -8,6 +9,7 @@ import com.example.androidcorepractice.R
 
 class RunningService: Service() {
 
+    // This function is used to create Bound service
     override fun onBind(p0: Intent?): IBinder? {
         return null
     }
@@ -15,7 +17,7 @@ class RunningService: Service() {
     // This is triggered whenever an another component sends an intent to this
     // running service
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        when (intent?.action) {
+        when(intent?.action) {
             Actions.START.toString() -> start()
             Actions.STOP.toString() -> stopSelf()
         }
