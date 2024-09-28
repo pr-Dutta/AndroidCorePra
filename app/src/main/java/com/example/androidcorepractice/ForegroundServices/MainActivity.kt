@@ -36,7 +36,9 @@ class MainActivity : AppCompatActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(onClick = {
+                        // Here we are delivering action to the RunningService
                         Intent(applicationContext, RunningService::class.java).also {
+                            // We are specifying the action
                             it.action = RunningService.Actions.START.toString()
                             startService(it)
                         }
@@ -46,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                     Button(onClick = {
                         Intent(applicationContext, RunningService::class.java).also {
                             it.action = RunningService.Actions.STOP.toString()
+                            // This only delivers intent to the service
                             startService(it)
                         }
                     }) {
