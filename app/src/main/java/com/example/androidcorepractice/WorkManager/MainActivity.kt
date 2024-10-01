@@ -35,8 +35,8 @@ import com.example.androidcorepractice.ui.theme.AndroidCorePracticeTheme
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var workManager: WorkManager
-    private val viewModel by viewModels<PhotoViewModel>()
+//    private lateinit var workManager: WorkManager
+//    private val viewModel by viewModels<PhotoViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
