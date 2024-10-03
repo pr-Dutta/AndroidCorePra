@@ -87,19 +87,19 @@ class MainActivity : AppCompatActivity() {
         } ?: return
         viewModel.updateUncompressedUri(uri)
 
-        val request = OneTimeWorkRequestBuilder<PhotoCompressionWorker>()
-            .setInputData(
-                workDataOf(
-                    PhotoCompressionWorker.KEY_CONTENT_URI to uri.toString(),
-                    PhotoCompressionWorker.KEY_COMPRESSION_THRESHOLD to 1024 * 20L
-                )
-            )
-            .setConstraints(Constraints(
-                requiresStorageNotLow = true
-            ))
-            .build()
-        viewModel.updateWorkId(request.id)
-        workManager.enqueue(request)
+//        val request = OneTimeWorkRequestBuilder<PhotoCompressionWorker>()
+//            .setInputData(
+//                workDataOf(
+//                    PhotoCompressionWorker.KEY_CONTENT_URI to uri.toString(),
+//                    PhotoCompressionWorker.KEY_COMPRESSION_THRESHOLD to 1024 * 20L
+//                )
+//            )
+//            .setConstraints(Constraints(
+//                requiresStorageNotLow = true
+//            ))
+//            .build()
+//        viewModel.updateWorkId(request.id)
+//        workManager.enqueue(request)
     }
 }
 
