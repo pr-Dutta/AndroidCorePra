@@ -70,19 +70,28 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(kotlin("script-runtime"))
 
-    // Coil is an image loader and image cashing library
-    implementation(libs.coil.compose)
+//    // Coil is an image loader and image cashing library
+//    implementation(libs.coil.compose)
+//    // viewModel import for having it inside compose
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
+//    // For Live data
+//    implementation("androidx.compose.runtime:runtime-livedata:1.4.3")
 
-    // viewModel import for having it inside compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
 
-    // For workManager
-    implementation("androidx.work:work-runtime-ktx:2.8.1")
+    // Foe new WorkManager project
+    // For viedmodel inside composable
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+    // This is for converting live data to compose state
+    implementation("androidx.compose.runtime:runtime-livedata:1.2.0-alpha03")
 
     // This for image loading
     implementation("io.coil-kt:coil-compose:2.4.0")
 
-    // For Live data
-    implementation("androidx.compose.runtime:runtime-livedata:1.4.3")
+    // For workManager
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 }
