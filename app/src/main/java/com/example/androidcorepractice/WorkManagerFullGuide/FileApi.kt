@@ -29,6 +29,8 @@ interface FileApi {
 
     // companion object: This is a special object in Kotlin that
     // allows the FileApi interface to have static-like behavior.
+
+    // --------------------------------------------------------------------
     // It allows you to define functions or properties that belong
     // to the interface itself, not to any instance of the interface.
     // This will create a single retrofit instance
@@ -57,3 +59,12 @@ interface FileApi {
         }
     }
 }
+
+
+
+
+
+
+
+
+
