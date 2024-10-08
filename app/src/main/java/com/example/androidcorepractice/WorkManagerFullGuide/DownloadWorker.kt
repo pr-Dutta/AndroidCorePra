@@ -1,8 +1,13 @@
 package com.example.androidcorepractice.WorkManagerFullGuide
 
 import android.content.Context
+import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
+import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
+import com.example.androidcorepractice.R
+import kotlinx.coroutines.delay
+import kotlin.random.Random
 
 // - (05-10-2024)
 // Now we will create a so called worker: worker is basically a class that
@@ -29,12 +34,38 @@ class DownloadWorker(
 
     // - (06-10-2024)
     // WorkManager contains a behaviour of showing a easy notification
-    // since in the can if we have a long running task it will
+    // since in can. if we have a long running task it will
     // execute it in a foreground service, and when we want to show
     // notification then we need to create a notification channel
     // that is usually done in an application class
     override suspend fun doWork(): Result {
-        TODO("Not yet implemented")
+        startForegroundService()
+        delay(5000L)
+    }
+
+    // - (07-10-2024)
+    // This Kotlin function startForegroundService() is designed
+    // to start a foreground service, which is a type of service
+    // in Android that keeps running in the background but displays
+    // a notification to let the user know it's active.
+    private suspend fun startForegroundService() {
+        // Since we are in the coroutineWorker
+        // setForeground: This tells the system that the service
+        // is now running in the foreground. It accepts an object
+        // of type ForegroundInfo, which contains details about
+        // the notification that will be shown.
+        setForeground(
+            // ForegroundInfo(...): This is an object that holds
+            // information about the notification for the foreground service.
+            ForegroundInfo(
+                Random.nextInt(),   // Notification ID
+                NotificationCompat.Builder(context, "download_channel")
+                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setContentText("Downloading..")
+                    .setContentTitle("Download in progress")
+                    .build()
+            )
+        )
     }
 }
 
