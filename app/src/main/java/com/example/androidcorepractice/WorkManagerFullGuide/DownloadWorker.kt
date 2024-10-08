@@ -38,10 +38,10 @@ class DownloadWorker(
     // execute it in a foreground service, and when we want to show
     // notification then we need to create a notification channel
     // that is usually done in an application class
-    override suspend fun doWork(): Result {
-        startForegroundService()
-        delay(5000L)
-    }
+//    override suspend fun doWork(): Result {
+//        startForegroundService()
+//        delay(5000L)
+//    }
 
     // - (07-10-2024)
     // This Kotlin function startForegroundService() is designed
