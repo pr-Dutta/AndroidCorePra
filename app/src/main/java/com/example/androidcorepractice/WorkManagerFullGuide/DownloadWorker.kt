@@ -5,8 +5,14 @@ import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
+import androidx.work.workDataOf
 import com.example.androidcorepractice.R
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import kotlin.random.Random
 
 // - (05-10-2024)
@@ -38,10 +44,43 @@ class DownloadWorker(
     // execute it in a foreground service, and when we want to show
     // notification then we need to create a notification channel
     // that is usually done in an application class
-//    override suspend fun doWork(): Result {
-//        startForegroundService()
-//        delay(5000L)
-//    }
+    override suspend fun doWork(): Result {
+        startForegroundService()
+        delay(5000L)
+        // - (09-10-2024)
+        // Here, an image is being downloaded from a remote source using
+        // an API. FileApi.instance.downloadImage() presumably makes a
+        // network request and returns a response
+        val response = FileApi.instance.downloadImage()
+        // This checks if the response body is not null. If it’s non-null,
+        // it proceeds to execute the block within let.
+        response.body()?.let { body ->  // body will contain the data of the
+            // downloaded image.
+            return withContext(Dispatchers.IO) {
+                // A File object is created to represent where the image will
+                // be saved (in the app's cache directory).
+                val file = File(context.cacheDir, "image.jpg")
+                // An outputStream is created for writing data to this file.
+                val outputStream = FileOutputStream(file)
+                outputStream.use { stream ->
+                    try {
+                        // The try block attempts to write the downloaded image
+                        // bytes to the file using stream.write(body.bytes()).
+                        stream.write(body.bytes())
+                    } catch (e: IOException) {
+                        // If an IOException occurs during this operation,
+                        // it catches the exception and returns a failure
+                        // result using Result.failure(). The workDataOf()
+                        // creates an empty Data object, which is often used
+                        // to pass information about the failure.
+                        return@withContext Result.failure(
+                            workDataOf()
+                        )
+                    }
+                }
+            }
+        }
+    }
 
     // - (07-10-2024)
     // This Kotlin function startForegroundService() is designed
