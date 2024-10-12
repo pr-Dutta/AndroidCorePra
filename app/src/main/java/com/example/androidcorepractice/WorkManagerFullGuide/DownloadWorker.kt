@@ -78,6 +78,11 @@ class DownloadWorker(
                         )
                     }
                 }
+                Result.success(
+                    workDataOf(
+                        workerKeys, 
+                    )
+                )
             }
         }
     }
