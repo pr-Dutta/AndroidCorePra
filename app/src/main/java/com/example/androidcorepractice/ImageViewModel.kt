@@ -12,7 +12,7 @@ class ImageViewModel : ViewModel() {
         private set
     // It's private set that it can be mutate from within the view-model only
 
-//    fun updateUri(uri: Uri?) {
-//        this.uri = uri
-//    }
+    fun updateUri(uri: Uri?) {
+        this.uri = uri
+    }
 }
