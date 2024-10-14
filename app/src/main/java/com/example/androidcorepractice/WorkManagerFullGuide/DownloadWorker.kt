@@ -74,15 +74,12 @@ class DownloadWorker(
                         // creates an empty Data object, which is often used
                         // to pass information about the failure.
                         return@withContext Result.failure(
-                            workDataOf()
+                            workDataOf(
+                                WorkerKeys
+                            )
                         )
                     }
                 }
-                Result.success(
-                    workDataOf(
-                        workerKeys,
-                    )
-                )
             }
         }
     }
