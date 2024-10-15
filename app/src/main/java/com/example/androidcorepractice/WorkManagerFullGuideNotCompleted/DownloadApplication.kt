@@ -1,4 +1,4 @@
-package com.example.androidcorepractice.WorkManagerFullGuide
+package com.example.androidcorepractice.WorkManagerFullGuideNotCompleted
 
 import android.app.Application
 import android.app.NotificationChannel

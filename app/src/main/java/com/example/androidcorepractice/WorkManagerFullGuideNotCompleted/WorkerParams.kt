@@ -1,4 +1,4 @@
-package com.example.androidcorepractice.WorkManagerFullGuide
+package com.example.androidcorepractice.WorkManagerFullGuideNotCompleted
 
 object WorkerParams {
     const val ERROR = "errorMsg"
