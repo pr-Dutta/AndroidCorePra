@@ -16,8 +16,8 @@ class DownloadApplication: Application() {
                 NotificationManager.IMPORTANCE_HIGH
             )
 
-//            val notificationManager = getSystemService(NotificationManager::class.java)
-//            notificationManager.createNotificationChannel(channel)
+            val notificationManager = getSystemService(NotificationManager::class.java)
+            notificationManager.createNotificationChannel(channel)
         }
     }
 }

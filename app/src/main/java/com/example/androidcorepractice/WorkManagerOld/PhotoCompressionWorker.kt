@@ -1,4 +1,4 @@
-package com.example.androidcorepractice.WorkManager
+package com.example.androidcorepractice.WorkManagerOld
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -9,7 +9,6 @@ import androidx.work.WorkerParameters
 import androidx.work.workDataOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okio.ByteString.Companion.readByteString
 import java.io.ByteArrayOutputStream
 import java.io.File
 import kotlin.math.roundToInt
