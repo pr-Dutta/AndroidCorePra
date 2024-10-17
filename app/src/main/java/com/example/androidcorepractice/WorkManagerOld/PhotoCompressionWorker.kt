@@ -15,6 +15,7 @@ import kotlin.math.roundToInt
 
 // This CoroutineWorker() will run in a suspend function and is async
 class PhotoCompressionWorker(
+    // There are default constructor arguments here
     private val appContext: Context,
     private val params: WorkerParameters
 ): CoroutineWorker(appContext, params) {

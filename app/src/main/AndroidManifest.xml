@@ -31,6 +31,9 @@
         android:theme="@style/Theme.AndroidCorePractice"
         tools:targetApi="31">
         <activity
+            android:name=".WorkManagerFromChatGPT.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".WorkManagerFullGuideNotCompleted.MainActivity"
             android:exported="false" />
         <activity
@@ -68,7 +71,9 @@ launchMode="singleTop" will let our app only to open an
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <!--
+            16-10-2024
             We register our app to open up on a chooser when user
             wants to send an image
             -->

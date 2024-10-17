@@ -53,16 +53,16 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 )
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = viewModel.backgroundColor
-                ) {
-                    Button(onClick = {
-                        viewModel.changeBackgroundColor()
-                    }) {
-                        Text(text = "Change color")
-                    }
-                }
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = viewModel.backgroundColor
+//                ) {
+//                    Button(onClick = {
+//                        viewModel.changeBackgroundColor()
+//                    }) {
+//                        Text(text = "Change color")
+//                    }
+//                }
             }
         }
     }
