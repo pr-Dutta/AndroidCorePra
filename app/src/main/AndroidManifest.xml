@@ -30,9 +30,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCorePractice"
         tools:targetApi="31">
-        <activity
-            android:name=".WorkManagerFromChatGPT.MainActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".WorkManagerFromChatGPT.MainActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".WorkManagerFullGuideNotCompleted.MainActivity"
             android:exported="false" />
@@ -55,7 +55,7 @@ launchMode="singleTop" will let our app only to open an
         one instance of our app
         -->
         <activity
-            android:name=".ForegroundServices.MainActivity"
+            android:name=".WorkManagerFromChatGPT.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTop"
