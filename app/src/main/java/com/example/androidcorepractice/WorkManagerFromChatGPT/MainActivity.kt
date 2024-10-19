@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         // which allows you to specify conditions or constraints that
         // must be met before a WorkManager task can be executed.
 
+        // .setRequiredNetworkType(NetworkType.CONNECTED)
         // This method is called on the Constraints.Builder object and
         // specifies that the task (in this case, a Worker) should only
         // run when the device is connected to a network. NetworkType.CONNECTED
@@ -46,10 +47,10 @@ class MainActivity : AppCompatActivity() {
         // based on the specified conditions (network connected and
         // battery not low). After calling build(), the constraints
         // are ready to be used.
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresBatteryNotLow(true)
-            .build()
+//        val constraints = Constraints.Builder()
+//            .setRequiredNetworkType(NetworkType.CONNECTED)
+//            .setRequiresBatteryNotLow(true)
+//            .build()
 
         // - (16-10-2024)
         // The code you've provided is used to schedule a one-time
