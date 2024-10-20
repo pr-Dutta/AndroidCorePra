@@ -30,7 +30,7 @@ class MyWorker(context: Context, params: WorkerParameters) : Worker(context, par
     // Whenever the system runs the background task, this function is called.
     override fun doWork(): Result {
         // Background task here (e.g., data sync, upload, etc.)
-//        println("WorkManager task is running --- ")
+        println("WorkManager task is running --- ")
 
         // Return success, failure, or retry
         return Result.success()
