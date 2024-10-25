@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
         // This finalizes the creation of the OneTimeWorkRequest.
         // After this, the request is ready to be passed to WorkManager
         // to schedule the background task.
-        val workRequest = OneTimeWorkRequest.Builder(MyWorker::class.java)
-            .setConstraints(constraints)
-            .build()
+//        val workRequest = OneTimeWorkRequest.Builder(MyWorker::class.java)
+//            .setConstraints(constraints)
+//            .build()
         // .Builder(MyWorker::class.java): This is how you create the
         // request. You specify the task (or worker) that will run.
         // In this case, MyWorker is a class you created that defines
