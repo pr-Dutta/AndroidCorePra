@@ -14,13 +14,13 @@ class AirPlaneModeReceiver : BroadcastReceiver() {
 
     // When we send a Broadcast We can attach data to it we can
     // attach action to it, in the form of an Intent
-    override fun onReceive(context: Context?, intent: Intent?) {
-        if (intent?.action == Intent.ACTION_AIRPLANE_MODE_CHANGED) {
-            val isTurnedOn = Settings.Global.getInt(
-                context?.contentResolver,
-                Settings.Global.AIRPLANE_MODE_ON
-            ) != 0
-            println("Is airplane mode enabled? $isTurnedOn")
-        }
-    }
+//    override fun onReceive(context: Context?, intent: Intent?) {
+//        if (intent?.action == Intent.ACTION_AIRPLANE_MODE_CHANGED) {
+//            val isTurnedOn = Settings.Global.getInt(
+//                context?.contentResolver,
+//                Settings.Global.AIRPLANE_MODE_ON
+//            ) != 0
+//            println("Is airplane mode enabled? $isTurnedOn")
+//        }
+//    }
 }
