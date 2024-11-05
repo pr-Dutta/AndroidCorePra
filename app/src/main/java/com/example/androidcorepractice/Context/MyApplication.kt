@@ -7,10 +7,10 @@ class MyApplication: Application() {
 
     // - (13-09-2024)
     // This application also have lifecycle like an Activity
-    override fun onCreate() {
-        super.onCreate()
-        val myContext: Context = this
-    }
+//    override fun onCreate() {
+//        super.onCreate()
+//        val myContext: Context = this
+//    }
 }
 
 // - (13-09-2024)
